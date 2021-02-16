@@ -255,7 +255,7 @@ curl -X GET http://127.0.0.1:5000/categories/1/questions
   "total_questions": 4
 }
 ```
-* POST `/quizzes`
+* POST `/quizzes` fetches random question of the specified category, and this question is guaranteed to be a new one not of the prvious questions. 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"previous_questions": [11, 12, 13], "quiz_category": {"type": "Art", "id": "2"}}' http://127.0.0.1:5000/quizzes
 ```
