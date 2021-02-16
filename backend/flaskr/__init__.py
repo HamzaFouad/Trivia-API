@@ -138,7 +138,7 @@ def create_app(test_config=None):
       return jsonify({
         'success': True,
         'questions': page_of_questions,
-        'total_questions': len(Question.query.all())
+        'total_questions': len(queried_questions)
       }), OK
 
     else: # if user Created a question process goes here
@@ -194,8 +194,8 @@ def create_app(test_config=None):
     if None in (previous_questions, category):
       abort(BAD_REQUEST)
     
-    
-    if category['id'] == 0: # if selected 'ALL' >>> load all questions
+    # if category['id'] == 0: # if selected 'ALL' >>> load all questions
+    if category['type'] == 'click': # if selected >>> load all questions
       questions = Question.query.all()
     else: # else get the questions corresponding to the selected category
       questions = Question.query.filter_by(category=category['id']).all()
