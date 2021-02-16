@@ -255,3 +255,19 @@ curl -X GET http://127.0.0.1:5000/categories/1/questions
   "total_questions": 4
 }
 ```
+* POST `/quizzes`
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"previous_questions": [11, 12, 13], "quiz_category": {"type": "Art", "id": "2"}}' http://127.0.0.1:5000/quizzes
+```
+```json
+{
+  "question": {
+    "answer": "One",
+    "category": 2,
+    "difficulty": 4,
+    "id": 18,
+    "question": "How many paintings did Van Gogh sell in his lifetime?"
+  },
+  "success": true
+}
+```
